@@ -1,549 +1,578 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3 اسمارٹ کنٹریکٹ مثال: فیٹ سے سٹیبل کوائن تقسیم</title>
-    <!-- فونٹ اور سادہ اسٹائل -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+    <title>Offshore Partnership | Complete Proposal & Demo</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(145deg, #0b0f1c 0%, #1a1f33 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-            color: #e0e4f0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f5fa;
+            color: #1a2b4c;
+            line-height: 1.6;
+        }
+        .top-notice {
+            background: #fef3c7;
+            border-bottom: 3px solid #f59e0b;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 500;
+            color: #92400e;
         }
         .container {
-            max-width: 1000px;
-            width: 100%;
-            background: rgba(18, 22, 40, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 42px;
-            padding: 28px 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255,255,255,0.08);
-            border: 1px solid #2c3150;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        h1 span {
-            background: #4f46e5;
-            padding: 4px 16px;
-            border-radius: 60px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .header {
+            background: linear-gradient(135deg, #0b1f3a, #1e3a6f);
             color: white;
-        }
-        .urdu {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            direction: rtl;
-            line-height: 1.8;
-            color: #b9c2db;
-            font-size: 1.1rem;
-            background: #0f1322;
-            padding: 18px 22px;
-            border-radius: 32px;
-            margin: 20px 0 28px 0;
-            border-right: 4px solid #3b82f6;
-        }
-        .badge {
-            background: #2c2f4a;
-            padding: 6px 14px;
+            padding: 40px;
             border-radius: 30px;
-            font-size: 0.8rem;
-            color: #a5b4fc;
-            border: 1px solid #3f4570;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 30px -10px rgba(0,20,50,0.3);
+        }
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .header .subhead {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .nav-cards {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            justify-content: center;
+        }
+        .nav-card {
+            background: white;
+            border-radius: 60px;
+            padding: 15px 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #d0ddee;
+            color: #1e3a6f;
+        }
+        .nav-card:hover {
+            background: #1e3a6f;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .section {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .section h2 {
+            font-size: 2rem;
+            color: #0b1f3a;
+            border-left: 6px solid #3b82f6;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        .legal-highlight {
+            background: #eef2ff;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #4f46e5;
+        }
+        .tax-box {
+            background: #dbeafe;
+            border-radius: 20px;
+            padding: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin: 25px 0;
+        }
+        .tax-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #059669;
+        }
+        .btn {
+            background: #1e3a6f;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #0b1f3a;
+        }
+        .contract-preview {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid #cbd5e1;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        .demo-container {
+            background: #0f172a;
+            border-radius: 30px;
+            padding: 30px;
+            color: #e2e8f0;
+            margin: 30px 0;
         }
         .payment-options {
             display: flex;
-            gap: 16px;
+            gap: 15px;
             flex-wrap: wrap;
-            margin: 30px 0 20px;
+            margin: 25px 0;
         }
         .pay-btn {
-            background: #1e2238;
-            border: 1px solid #343a5c;
-            color: #ccd6f0;
-            padding: 14px 32px;
-            border-radius: 50px;
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #f1f5f9;
+            padding: 15px 30px;
+            border-radius: 40px;
             font-weight: 600;
-            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            gap: 10px;
+            transition: 0.2s;
             flex: 1 1 auto;
             justify-content: center;
         }
         .pay-btn.active {
-            background: #4f46e5;
-            border-color: #818cf8;
-            color: white;
+            background: #3b82f6;
+            border-color: #60a5fa;
             transform: scale(1.02);
-            box-shadow: 0 10px 20px -8px #4f46e5;
-        }
-        .pay-btn img, .pay-btn svg {
-            width: 24px;
-            height: 24px;
-            filter: brightness(0) invert(0.9);
-        }
-        .paypal-form, .stripe-form, .bank-form {
-            background: #151a2d;
-            border-radius: 36px;
-            padding: 28px;
-            margin: 24px 0 30px;
-            border: 1px solid #353d62;
-            box-shadow: inset 0 2px 5px #0a0e1a;
-            transition: all 0.3s;
-        }
-        .kyc-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            color: #f0b90b; /* binance yellow hint */
-        }
-        .kyc-header svg {
-            width: 32px;
-            height: 32px;
         }
         .input-group {
-            margin-bottom: 24px;
+            margin: 20px 0;
         }
         .input-group label {
             display: block;
-            font-size: 0.9rem;
-            color: #9aa4c9;
-            margin-bottom: 6px;
+            color: #94a3b8;
+            margin-bottom: 8px;
         }
         .input-group input {
             width: 100%;
-            background: #0e1223;
-            border: 1px solid #313a60;
             padding: 18px 22px;
+            background: #0f172a;
+            border: 1px solid #334155;
             border-radius: 30px;
-            font-size: 1.3rem;
             color: white;
-            outline: none;
-            transition: 0.2s;
-        }
-        .input-group input:focus {
-            border-color: #6366f1;
-            box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
+            font-size: 1.2rem;
         }
         .action-button {
             background: #10b981;
-            border: none;
             color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 40px;
             font-weight: 700;
-            padding: 18px 28px;
-            border-radius: 40px;
+            font-size: 1.1rem;
             width: 100%;
-            font-size: 1.2rem;
             cursor: pointer;
-            transition: background 0.2s;
-            box-shadow: 0 10px 15px -5px #059669;
-            letter-spacing: 0.5px;
-        }
-        .action-button:hover {
-            background: #059669;
-        }
-        .step-panel {
-            background: #101425;
-            border-radius: 40px;
-            padding: 24px;
-            margin-top: 32px;
-            border: 1px solid #363e64;
+            transition: 0.2s;
         }
         .account-card {
-            background: #1c213b;
-            border-radius: 28px;
+            background: #1e293b;
+            border-radius: 20px;
             padding: 20px;
-            margin: 12px 0;
+            margin: 15px 0;
             border-left: 6px solid;
-            box-shadow: 0 6px 14px #06080f;
         }
-        .account-b {
-            border-left-color: #f59e0b;
-        }
-        .account-c {
-            border-left-color: #3b82f6;
-        }
-        .account-d {
-            border-left-color: #8b5cf6;
-        }
-        .flex-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+        .account-b { border-left-color: #f59e0b; }
+        .account-c { border-left-color: #3b82f6; }
+        .account-d { border-left-color: #8b5cf6; }
         .balance {
             font-size: 2rem;
             font-weight: 700;
             font-family: monospace;
-            background: #0b0f1c;
+            background: #0f172a;
             padding: 10px 20px;
             border-radius: 40px;
-            letter-spacing: 1px;
-            border: 1px solid #3e476b;
-        }
-        .small-badge {
-            background: #2e344f;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            color: #bcc3e0;
-        }
-        .metamask-pop {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #f6851b20;
-            border: 1px solid #f6851b;
-            padding: 12px 24px;
-            border-radius: 50px;
-            margin-top: 12px;
-            backdrop-filter: blur(8px);
-            color: #f9b554;
-        }
-        .binance-pop {
-            background: #f0b90b20;
-            border: 1px solid #f0b90b;
-            color: #f8d44e;
+            margin: 10px 0;
         }
         .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: #252b44;
-            border-radius: 6px;
-            margin: 16px 0;
+            height: 8px;
+            background: #334155;
+            border-radius: 10px;
             overflow: hidden;
+            margin: 15px 0;
         }
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #4f46e5, #10b981);
+            background: linear-gradient(90deg, #3b82f6, #10b981);
             width: 0%;
-            transition: width 0.5s;
+            transition: width 0.3s;
         }
-        .hidden {
-            display: none;
-        }
-        .subtitle {
-            color: #8991b5;
-            font-size: 0.95rem;
-            margin-top: 6px;
-        }
-        footer {
-            margin-top: 30px;
+        .footer {
             text-align: center;
-            color: #5b638b;
-            font-size: 0.9rem;
+            padding: 30px;
+            color: #64748b;
+        }
+        .urgent-note {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            color: #7f1d1d;
         }
     </style>
 </head>
 <body>
-<div class="container" id="app">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h1>🔮 Web3 اسمارٹ کنٹریکٹ <span>مثال</span></h1>
-        <div class="badge">اسٹیبل کوائن • خودکار تقسیم</div>
+    <div class="top-notice">
+        ⚠️ IMPORTANT NOTICE: This document is a conceptual draft for discussion purposes only. All content is hypothetical and for demonstration. No binding agreement exists. Legal names, dates, and final terms will be established within a formal legal framework before any business relationship commences.
     </div>
 
-    <div class="urdu">
-        ⚡ تصور: صارف A (آپ) اکاؤنٹ B کو فیاٹ ادائیگی کرتا ہے (پے پال / اسٹرائپ / بینک)۔
-        B فوری طور پر رقم کو اسٹیبل کوائن (USDC) میں بدلتا ہے۔ پھر 60% اکاؤنٹ D (یوگا) اور 40% اکاؤنٹ C (ڈیجیٹل پراپرٹی بیچنے والا) کو خودکار منتقل ہو جاتا ہے۔
-        یہ سمارٹ کنٹریکٹ کی منطق ہے۔ نیچے فرضی انٹرفیس میں آزمائیں۔
-    </div>
-
-    <!-- صارف A کا انٹرفیس: ادائیگی کے طریقے -->
-    <div style="margin-bottom: 12px;">
-        <span style="font-size: 1.2rem;">💳 صارف A : ادائیگی کا طریقہ منتخب کریں</span>
-    </div>
-    <div class="payment-options">
-        <button class="pay-btn active" id="btnPaypal" data-method="paypal">
-            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M7.076 21.337H3.308l1.666-10.558h3.768l-.666 4.23h2.357l.61-3.87h3.74L14.1 14.98h2.217l-.61 3.87h-2.215l-.59 3.728h-3.77l.59-3.728H8.23l-.59 3.728h-3.77l.59-3.728H4.47l.59-3.728H3.308l.59-3.728h2.217l.59-3.728h3.77l-.59 3.728h2.357l.59-3.728h3.77l-.59 3.728h2.217l-.59 3.728h-2.215l-.61 3.87h-3.74l-.59 3.728h-3.77l.59-3.728H7.076z"/></svg>
-            پے پال
-        </button>
-        <button class="pay-btn" id="btnStripe" data-method="stripe">
-            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M13.976 9.15c-1.766 0-3.023.947-3.023 2.512 0 1.52 1.115 2.432 3.136 2.432 1.488 0 2.512-.28 3.023-.48v-1.68c-.508.16-1.488.44-2.636.44-1.057 0-1.694-.44-1.694-1.176 0-.88.88-1.408 2.168-1.408.96 0 1.86.2 2.512.48V9.85c-.56-.24-1.56-.52-2.852-.52zM21 12.45c-.24.12-.76.24-1.24.24-.92 0-1.6-.48-1.6-1.64V8.79h1.88V7.19h-1.88V5.45h-1.76v1.74h-1.08v1.6h1.08v2.48c0 2.12 1.24 2.96 2.76 2.96.8 0 1.64-.2 2.12-.48l-.28-1.4zM10.396 7.19h-1.76v6.32h1.76v-3.6c0-1.32.8-1.88 1.88-1.88.16 0 .36.04.52.08v-1.72c-.16-.04-.36-.08-.64-.08-1.04 0-1.76.56-1.76 1.76v-1.56z"/></svg>
-            اسٹرائپ
-        </button>
-        <button class="pay-btn" id="btnBank" data-method="bank">
-            <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 2L2 7v2h20V7l-10-5zm0 4.5c-.69 0-1.25-.56-1.25-1.25S11.31 4 12 4s1.25.56 1.25 1.25S12.69 6.5 12 6.5zM20 11h-2v7h-2v-7h-2v7h-2v-7h-2v7H8v-7H6v7H4v-7H2v9h20v-9z"/></svg>
-            بینک ٹرانسفر
-        </button>
-    </div>
-
-    <!-- فرضی KYC / ادائیگی کا فارم (پے پال بطور ڈیفالٹ) -->
-    <div id="paymentFormContainer"></div>
-
-    <!-- سمارٹ کنٹریکٹ کے مراحل دکھانے کا حصہ (شروع میں چھپا ہوا) -->
-    <div id="smartContractSteps" class="step-panel hidden">
-        <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 20px;">
-            <span>⚙️ سمارٹ کنٹریکٹ ورک فلو</span>
-            <span class="small-badge">لیجر اپڈیٹ</span>
+    <div class="container">
+        <!-- HEADER WITH INTRODUCTION -->
+        <div class="header">
+            <h1>🤝 Offshore Partnership Proposal</h1>
+            <p class="subhead">Complete software development & support services | IRS-compliant structure | Web3 capabilities</p>
+            <p style="margin-top: 20px;">Prepared for: <strong>Party A (Client)</strong> | From: <strong>Party B (Provider – Pakistan)</strong></p>
         </div>
 
-        <!-- اکاؤنٹ B کا مرحلہ -->
-        <div id="accountBStep" class="account-card account-b">
-            <div class="flex-row">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="background: #f59e0b; width: 12px; height: 12px; border-radius: 20px;"></span>
-                    <span style="font-weight: 600;">🏦 اکاؤنٹ B (مارکیٹ پلیس / وصول کنندہ)</span>
-                </div>
-                <span class="small-badge" id="bTimer">⏳ 1 منٹ</span>
-            </div>
-            <div class="progress-bar" id="progressB">
-                <div class="progress-fill" id="progressBFill" style="width: 0%;"></div>
-            </div>
-            <div id="bDetails">
-                <!-- javascript سے بھریں گے -->
-            </div>
+        <!-- NAVIGATION CARDS -->
+        <div class="nav-cards">
+            <span class="nav-card" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">📋 Introduction</span>
+            <span class="nav-card" onclick="document.getElementById('proposal').scrollIntoView({behavior:'smooth'})">💰 Proposal</span>
+            <span class="nav-card" onclick="document.getElementById('agreement').scrollIntoView({behavior:'smooth'})">📜 Agreement Sample</span>
+            <span class="nav-card" onclick="document.getElementById('irs').scrollIntoView({behavior:'smooth'})">⚖️ IRS Compliance</span>
+            <span class="nav-card" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">🔗 Smart Contract Demo</span>
         </div>
 
-        <!-- متوازی اکاؤنٹ C اور D (شروع میں چھپے) -->
-        <div id="distributionStep" style="display: none;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;">
-                <!-- اکاؤنٹ C -->
-                <div class="account-card account-c" id="accountC">
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-                        <span style="background: #3b82f6; width: 12px; height: 12px; border-radius: 20px;"></span>
-                        <span style="font-weight: 600;">🧑‍🎨 اکاؤنٹ C (فروخت کنندہ) - 40%</span>
-                    </div>
-                    <div class="balance" id="cBalance">0 USDC</div>
-                    <div class="metamask-pop" id="cMeta">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 40 40'%3E%3Cpath fill='%23f6851b' d='M36.3 3.3L21.7 14.3l2.7-6.3z'/%3E%3Cpath fill='%23e4761b' d='M6.7 3.3l14.4 11.2-2.4-6.3zM32.3 27.1l-4.5 6.9 9.6 2.6 2.7-9.3z'/%3E%3Cpath fill='%23d7c1b3' d='M4 27.3l2.7 9.3 9.6-2.6-4.5-6.9zM21.7 24.4l-5.2 5.2 6.1.9-.2-6.1z'/%3E%3C/svg%3E" style="width: 22px;"> میٹاماسک: 40% موصول
-                    </div>
+        <!-- INTRODUCTION SECTION -->
+        <div id="intro" class="section">
+            <h2>📋 Introduction</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">This proposal outlines a strategic partnership between:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 250px; background: #f1f5f9; padding: 25px; border-radius: 20px;">
+                    <h3 style="color: #1e3a6f;">🇺🇸 Party A (Client)</h3>
+                    <p>US-based automotive business specializing in import/export, parts sales, installation, and repair.</p>
                 </div>
-                <!-- اکاؤنٹ D -->
-                <div class="account-card account-d" id="accountD">
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-                        <span style="background: #8b5cf6; width: 12px; height: 12px; border-radius: 20px;"></span>
-                        <span style="font-weight: 600;">🧘 اکاؤنٹ D (یوگا) - 60%</span>
-                    </div>
-                    <div class="balance" id="dBalance">0 USDC</div>
-                    <div class="metamask-pop binance-pop" id="dBinance">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23f0b90b' d='M12 2.5L4.5 7v10l7.5 4.5 7.5-4.5V7L12 2.5zm0 2.1l5.5 3.3v6.6L12 18.1l-5.5-3.3V7.9L12 4.6z'/%3E%3C/svg%3E" style="width: 22px;"> بائننس: 60% موصول
-                    </div>
+                <div style="flex: 1; min-width: 250px; background: #f1f5f9; padding: 25px; border-radius: 20px;">
+                    <h3 style="color: #1e3a6f;">🇵🇰 Party B (Provider)</h3>
+                    <p>Pakistan-based software house with 5 senior developers, virtual assistants, telephone operators, and Web3 expertise.</p>
                 </div>
             </div>
         </div>
-        <button id="resetDemo" class="action-button" style="margin-top: 30px; background:#374151;">🔄 نیا ڈیمو شروع کریں</button>
-    </div>
-    <footer>⚡ مکمل طور پر فرضی / Web3 اسمارٹ کنٹریکٹ سمیولیشن</footer>
-</div>
 
-<script>
-    (function(){
-        // DOM elements
-        const btnPaypal = document.getElementById('btnPaypal');
-        const btnStripe = document.getElementById('btnStripe');
-        const btnBank = document.getElementById('btnBank');
-        const formContainer = document.getElementById('paymentFormContainer');
-        const stepsPanel = document.getElementById('smartContractSteps');
-        const bDetails = document.getElementById('bDetails');
-        const accountBStep = document.getElementById('accountBStep');
-        const distributionStep = document.getElementById('distributionStep');
-        const bTimer = document.getElementById('bTimer');
-        const progressBFill = document.getElementById('progressBFill');
-        const cBalance = document.getElementById('cBalance');
-        const dBalance = document.getElementById('dBalance');
-        const resetBtn = document.getElementById('resetDemo');
+        <!-- PROPOSAL SECTION -->
+        <div id="proposal" class="section">
+            <h2>💰 Service Proposal</h2>
+            <div style="margin: 25px 0;">
+                <h3>Services Offered:</h3>
+                <ul style="columns: 2; list-style: none; padding: 0;">
+                    <li style="margin: 10px 0;">✅ Embedded automotive software</li>
+                    <li style="margin: 10px 0;">✅ Web3 / Smart contracts (Solidity/Rust)</li>
+                    <li style="margin: 10px 0;">✅ Virtual assistance</li>
+                    <li style="margin: 10px 0;">✅ Telephone operators (US hours)</li>
+                    <li style="margin: 10px 0;">✅ Translation (Urdu/English)</li>
+                    <li style="margin: 10px 0;">✅ Social media management</li>
+                    <li style="margin: 10px 0;">✅ Market research & data entry</li>
+                </ul>
+            </div>
 
-        // current active method
-        let currentMethod = 'paypal';
+            <h3>💰 Market-Based Rates (2026 Pakistan)</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: #1e3a6f; color: white;">
+                    <th style="padding: 12px; text-align: left;">Service</th>
+                    <th style="padding: 12px; text-align: left;">Proposed Rate (USD/h)</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #cbd5e1;"><td>Senior Developer</td><td><strong>$60</strong></td></tr>
+                <tr style="border-bottom: 1px solid #cbd5e1;"><td>Web3 Developer</td><td><strong>$75</strong></td></tr>
+                <tr style="border-bottom: 1px solid #cbd5e1;"><td>Virtual Assistant</td><td><strong>$20</strong></td></tr>
+                <tr style="border-bottom: 1px solid #cbd5e1;"><td>Telephone Operator</td><td><strong>$15</strong></td></tr>
+                <tr><td>Translation/Social Media</td><td><strong>$25</strong></td></tr>
+            </table>
 
-        // Store latest amount
-        let latestAmount = 0;
+            <div style="background: #e6f7ff; padding: 25px; border-radius: 20px; margin: 30px 0;">
+                <h3>📅 Engagement Structure</h3>
+                <p><strong>Setup (one-time):</strong> $50,000 (office, equipment, onboarding, licenses)</p>
+                <p><strong>Ongoing weekly (team of 5):</strong> $9,800/week → $39,200/month → $470,400/year</p>
+                <p><strong>Total first year investment:</strong> $520,400</p>
+                <p><strong>Payment terms:</strong> 50% advance upon contract signing ($260,200), then weekly payments of $9,800.</p>
+            </div>
+        </div>
 
-        // Helper to reset UI (keep payment visible)
-        function resetToPayment() {
-            // hide steps, show payment form, reset any progress
-            stepsPanel.classList.add('hidden');
-            distributionStep.style.display = 'none';
-            // reset buttons active state
-            document.querySelectorAll('.pay-btn').forEach(btn => btn.classList.remove('active'));
-            if (currentMethod === 'paypal') btnPaypal.classList.add('active');
-            else if (currentMethod === 'stripe') btnStripe.classList.add('active');
-            else if (currentMethod === 'bank') btnBank.classList.add('active');
-            // render form again
-            renderForm(currentMethod);
-            // clear any timeouts
-        }
+        <!-- AGREEMENT SAMPLE SECTION -->
+        <div id="agreement" class="section">
+            <h2>📜 Service Agreement (Sample Clauses)</h2>
+            <div class="contract-preview">
+                <strong>1. SERVICES:</strong> Provider shall deliver software development, virtual assistance, telephone, translation, social media, and research services as detailed in Schedule A.
 
-        // Render form based on method
-        function renderForm(method) {
-            let html = '';
-            if (method === 'paypal') {
-                html = `
-                <div class="paypal-form">
-                    <div class="kyc-header">
-                        <svg viewBox="0 0 24 24" width="32" fill="#009cde"><path d="M7.076 21.337H3.308l1.666-10.558h3.768l-.666 4.23h2.357l.61-3.87h3.74L14.1 14.98h2.217l-.61 3.87h-2.215l-.59 3.728h-3.77l.59-3.728H8.23l-.59 3.728h-3.77l.59-3.728H4.47l.59-3.728H3.308l.59-3.728h2.217l.59-3.728h3.77l-.59 3.728h2.357l.59-3.728h3.77l-.59 3.728h2.217l-.59 3.728h-2.215l-.61 3.87h-3.74l-.59 3.728h-3.77l.59-3.728H7.076z"/></svg>
-                        <span style="font-size:1.5rem; font-weight:600;">PayPal KYC (فرضی)</span>
-                    </div>
-                    <div class="input-group">
-                        <label>💰 رقم درج کریں (USD)</label>
-                        <input type="number" id="amountInput" placeholder="مثلاً 500" min="1" step="1" value="250">
-                    </div>
-                    <button class="action-button" id="submitPayment">💰 ادائیگی کریں</button>
-                    <p class="subtitle">🔒 فرضی سمولیشن — اصلی رقم منتقل نہیں ہوتی</p>
-                </div>`;
-            } else if (method === 'stripe') {
-                html = `
-                <div class="stripe-form">
-                    <div class="kyc-header" style="color:#635bff;">
-                        <svg viewBox="0 0 24 24" width="32" fill="#635bff"><path d="M13.976 9.15c-1.766 0-3.023.947-3.023 2.512 0 1.52 1.115 2.432 3.136 2.432 1.488 0 2.512-.28 3.023-.48v-1.68c-.508.16-1.488.44-2.636.44-1.057 0-1.694-.44-1.694-1.176 0-.88.88-1.408 2.168-1.408.96 0 1.86.2 2.512.48V9.85c-.56-.24-1.56-.52-2.852-.52zM21 12.45c-.24.12-.76.24-1.24.24-.92 0-1.6-.48-1.6-1.64V8.79h1.88V7.19h-1.88V5.45h-1.76v1.74h-1.08v1.6h1.08v2.48c0 2.12 1.24 2.96 2.76 2.96.8 0 1.64-.2 2.12-.48l-.28-1.4zM10.396 7.19h-1.76v6.32h1.76v-3.6c0-1.32.8-1.88 1.88-1.88.16 0 .36.04.52.08v-1.72c-.16-.04-.36-.08-.64-.08-1.04 0-1.76.56-1.76 1.76v-1.56z"/></svg>
-                        <span style="font-size:1.5rem;">Stripe KYC (فرضی)</span>
-                    </div>
-                    <div class="input-group">
-                        <label>💵 رقم درج کریں (USD)</label>
-                        <input type="number" id="amountInput" placeholder="مثلاً 250" min="1" value="125">
-                    </div>
-                    <button class="action-button" id="submitPayment" style="background:#635bff;">💳 ادا کریں</button>
-                </div>`;
-            } else {
-                html = `
-                <div class="bank-form">
-                    <div class="kyc-header">
-                        <svg viewBox="0 0 24 24" width="32" fill="#aaa"><path d="M12 2L2 7v2h20V7l-10-5zm0 4.5c-.69 0-1.25-.56-1.25-1.25S11.31 4 12 4s1.25.56 1.25 1.25S12.69 6.5 12 6.5zM20 11h-2v7h-2v-7h-2v7h-2v-7h-2v7H8v-7H6v7H4v-7H2v9h20v-9z"/></svg>
-                        <span style="font-size:1.5rem;">بینک ٹرانسفر (فرضی)</span>
-                    </div>
-                    <div class="input-group">
-                        <label>🏦 رقم درج کریں (USD)</label>
-                        <input type="number" id="amountInput" placeholder="مثلاً 1000" min="1" value="500">
-                    </div>
-                    <button class="action-button" id="submitPayment" style="background:#2563eb;">🏛 بینک سے منتقلی</button>
-                </div>`;
-            }
-            formContainer.innerHTML = html;
+                <strong>2. FEES & PAYMENT:</strong> Setup fee $50,000 (one-time). Ongoing fee $9,800/week. 50% advance ($260,200) due on execution, then weekly payments.
 
-            // attach event to the newly created submit button
-            const submitBtn = document.getElementById('submitPayment');
-            if (submitBtn) {
-                submitBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const amountInput = document.getElementById('amountInput');
-                    let amount = parseFloat(amountInput.value);
-                    if (isNaN(amount) || amount <= 0) amount = 50; // fallback
-                    latestAmount = amount;
-                    startSmartContractFlow(amount);
-                });
-            }
-        }
+                <strong>3. IRS COMPLIANCE (Section 174):</strong> The parties acknowledge that all services constitute foreign research and experimental expenditures. Client shall amortize all payments over 15 years as required by IRC §174.
 
-        // Flow start
-        function startSmartContractFlow(amount) {
-            // Hide payment form and show steps
-            formContainer.innerHTML = ''; // clear form
-            stepsPanel.classList.remove('hidden');
-            distributionStep.style.display = 'none'; // hide distribution initially
-            // reset progress
-            progressBFill.style.width = '0%';
-            bTimer.innerText = '⏳ 0:01';
+                <strong>4. ARM'S LENGTH PRICING (Section 482):</strong> The parties confirm that the fees represent market rates for similar services in Pakistan, supported by benchmark data.
 
-            // Fill B initial details
-            bDetails.innerHTML = `<div style="display:flex; justify-content:space-between; margin-top:8px"><span>💲 موصول: $${amount} USD (fiat)</span> <span class="small-badge">منتظر</span></div>`;
+                <strong>5. DASHBOARD & REPORTING:</strong> Provider shall maintain a web dashboard showing daily aggregate team activity, task progress, and a communication interface. All data retained for audit purposes.
+
+                <strong>6. INTELLECTUAL PROPERTY:</strong> All work product, code, and deliverables are the sole property of Client.
+
+                <strong>7. CONFIDENTIALITY:</strong> Provider shall maintain strict confidentiality of all Client information. NDA survives termination.
+
+                <strong>8. TERM:</strong> Initial 6 months, automatically renewing for 3-month periods unless 30 days notice given. Either party may terminate with 60 days notice.
+
+                <strong>9. GOVERNING LAW:</strong> State of [State], USA and applicable federal law.
+            </div>
+            <p style="margin-top: 15px;"><em>Note: This is a summary. Full agreement will be provided upon approval.</em></p>
+        </div>
+
+        <!-- IRS COMPLIANCE SECTION -->
+        <div id="irs" class="section">
+            <h2>⚖️ IRS Compliance & 15-Year Amortization</h2>
             
-            // مرحلہ 1: B کو رقم ملتی ہے اور کنورٹ ہوتی ہے (1 منٹ کا سمیولیشن)
-            let seconds = 0;
-            const interval = setInterval(() => {
-                seconds++;
-                const remaining = 60 - seconds;
-                if (remaining >= 0) {
-                    bTimer.innerText = `⏳ ${Math.floor(remaining/60)}:${(remaining%60).toString().padStart(2,'0')}`;
+            <div class="legal-highlight">
+                <h3>📐 Section 174 – Research & Experimental Expenditures</h3>
+                <p>Since all services are performed in Pakistan (foreign R&D), the IRS requires amortization over 15 years. This spreads your tax benefit, giving you savings each year for a decade and a half.</p>
+            </div>
+
+            <div class="tax-box">
+                <div>
+                    <p style="font-size: 1.2rem;">On a <strong>$520,400</strong> first-year investment:</p>
+                    <p>➡️ Annual amortization = $34,693</p>
+                    <p>➡️ Annual tax saved (30% rate) = <strong>$10,408</strong></p>
+                    <p class="tax-number">$156,120</p>
+                    <p>total tax savings over 15 years</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 20px; text-align: center;">
+                    <span style="font-size: 3rem; color: #1e3a6f;">15</span>
+                    <p>years of benefit</p>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 20px; border-radius: 16px; margin: 20px 0;">
+                <p><strong>💡 Even if the project ends after 6 months:</strong> The remaining $485,700 continues to provide tax deductions over the next 14.5 years.</p>
+            </div>
+
+            <div class="legal-highlight">
+                <h3>📐 Section 482 – Arm's Length Pricing</h3>
+                <p>All rates are benchmarked to Pakistan's market (senior developer $60/h, etc.). This ensures the IRS accepts the payments as ordinary business expenses, not disguised profit shifting.</p>
+            </div>
+
+            <h3 style="margin: 30px 0 15px;">📁 Audit-Ready Documentation</h3>
+            <ul style="columns: 2;">
+                <li>✅ Daily timesheets (aggregate team hours)</li>
+                <li>✅ Invoices & payment proofs</li>
+                <li>✅ Dashboard activity logs</li>
+                <li>✅ Form 1099-NEC (filed annually)</li>
+                <li>✅ Benchmark studies for rates</li>
+                <li>✅ Signed contract with all clauses</li>
+            </ul>
+        </div>
+
+        <!-- SMART CONTRACT DEMO (ENGLISH VERSION) -->
+        <div id="demo" class="section">
+            <h2>🔗 Web3 Smart Contract Demo</h2>
+            <p>Below is a live demonstration of how a smart contract can automate fund distribution. This simulates:</p>
+            <ul>
+                <li>Party A sends fiat payment (PayPal/Stripe/Bank)</li>
+                <li>Account B converts to stablecoin (USDC)</li>
+                <li>Smart contract automatically splits: 60% to Account D, 40% to Account C</li>
+            </ul>
+
+            <div class="demo-container">
+                <h3 style="color: white; margin-bottom: 20px;">💳 Select Payment Method</h3>
+                <div class="payment-options">
+                    <button class="pay-btn active" id="demoBtnPaypal">💰 PayPal</button>
+                    <button class="pay-btn" id="demoBtnStripe">💳 Stripe</button>
+                    <button class="pay-btn" id="demoBtnBank">🏦 Bank Transfer</button>
+                </div>
+
+                <!-- Dynamic Form Container -->
+                <div id="demoFormContainer"></div>
+
+                <!-- Smart Contract Steps (hidden initially) -->
+                <div id="demoSteps" style="display: none; margin-top: 30px;">
+                    <h4 style="color: #94a3b8;">⚙️ Smart Contract Workflow</h4>
+                    
+                    <!-- Account B -->
+                    <div class="account-card account-b">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span><strong>🏦 Account B (Marketplace)</strong></span>
+                            <span id="bTimer">⏳ 0:00</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="bProgress" style="width: 0%;"></div>
+                        </div>
+                        <div id="bDetails">Waiting for payment...</div>
+                    </div>
+
+                    <!-- Distribution Accounts -->
+                    <div id="distAccounts" style="display: none;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                            <div class="account-card account-c">
+                                <h4>🧑‍🎨 Account C (Seller) - 40%</h4>
+                                <div class="balance" id="cBal">0 USDC</div>
+                                <div>🦊 MetaMask: <span id="cAddr">0x742...d3</span></div>
+                            </div>
+                            <div class="account-card account-d">
+                                <h4>🧘 Account D (Yoga) - 60%</h4>
+                                <div class="balance" id="dBal">0 USDC</div>
+                                <div>🟡 Binance: <span id="dAddr">0x9e1...b7</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn" style="margin-top: 30px; width: 100%;" onclick="window.location.reload()">🔄 Reset Demo</button>
+                </div>
+            </div>
+
+            <p style="margin-top: 15px;"><em>This is a simulated demonstration of smart contract logic. No real funds are transferred.</em></p>
+        </div>
+
+        <!-- URGENT NOTE SECTION -->
+        <div class="urgent-note">
+            <h2 style="color: #7f1d1d; margin-bottom: 20px;">📌 IMPORTANT NOTE</h2>
+            <p style="font-size: 1.1rem;">All content presented in this document is <strong>conceptual and hypothetical</strong>. It is intended solely for discussion and demonstration purposes. No binding agreement, partnership, or legal relationship exists based on this material. Before any business engagement, all terms, conditions, names, dates, and financial details must be formalized within a legally binding contract drafted by qualified legal professionals. This document does not constitute legal, tax, or financial advice.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 – Conceptual draft. All rights reserved.</p>
+            <p>📧 provider@example.com | 📞 +92 300 1234567</p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Demo logic (English version of your smart contract demo)
+            const btnPaypal = document.getElementById('demoBtnPaypal');
+            const btnStripe = document.getElementById('demoBtnStripe');
+            const btnBank = document.getElementById('demoBtnBank');
+            const formContainer = document.getElementById('demoFormContainer');
+            const stepsPanel = document.getElementById('demoSteps');
+            const distAccounts = document.getElementById('distAccounts');
+            const bTimer = document.getElementById('bTimer');
+            const bProgress = document.getElementById('bProgress');
+            const bDetails = document.getElementById('bDetails');
+            const cBal = document.getElementById('cBal');
+            const dBal = document.getElementById('dBal');
+
+            let currentMethod = 'paypal';
+            let intervalId = null;
+
+            function setActive(method) {
+                [btnPaypal, btnStripe, btnBank].forEach(btn => btn.classList.remove('active'));
+                if (method === 'paypal') btnPaypal.classList.add('active');
+                if (method === 'stripe') btnStripe.classList.add('active');
+                if (method === 'bank') btnBank.classList.add('active');
+                currentMethod = method;
+                renderForm(method);
+            }
+
+            function renderForm(method) {
+                let html = '';
+                if (method === 'paypal') {
+                    html = `
+                    <div style="background: #1e293b; padding: 25px; border-radius: 20px; margin-top: 20px;">
+                        <h4 style="color: #ffc439;">PayPal Simulation</h4>
+                        <div class="input-group">
+                            <label>Enter amount (USD)</label>
+                            <input type="number" id="demoAmount" value="500" min="1">
+                        </div>
+                        <button class="action-button" id="submitDemo">💸 Send Payment</button>
+                    </div>`;
+                } else if (method === 'stripe') {
+                    html = `
+                    <div style="background: #1e293b; padding: 25px; border-radius: 20px; margin-top: 20px;">
+                        <h4 style="color: #635bff;">Stripe Simulation</h4>
+                        <div class="input-group">
+                            <label>Enter amount (USD)</label>
+                            <input type="number" id="demoAmount" value="250" min="1">
+                        </div>
+                        <button class="action-button" id="submitDemo" style="background:#635bff;">💳 Pay with Card</button>
+                    </div>`;
+                } else {
+                    html = `
+                    <div style="background: #1e293b; padding: 25px; border-radius: 20px; margin-top: 20px;">
+                        <h4 style="color: #94a3b8;">Bank Transfer Simulation</h4>
+                        <div class="input-group">
+                            <label>Enter amount (USD)</label>
+                            <input type="number" id="demoAmount" value="1000" min="1">
+                        </div>
+                        <button class="action-button" id="submitDemo" style="background:#2563eb;">🏦 Initiate Transfer</button>
+                    </div>`;
                 }
-                // پروگریس بار 0 to 100% in 60 sec, but we'll speed up for demo: actually we do 6 seconds = 1 minute simulate
-                // For better UX, we compress 1 min to 6 seconds (10x speed)
-                const fakeProgress = Math.min(100, (seconds / 6) * 100); // 6 sec = 1 min
-                progressBFill.style.width = fakeProgress + '%';
+                formContainer.innerHTML = html;
 
-                if (seconds === 2) {
-                    // آدھے راستے میں stablecoin بنتا دکھائیں
-                    bDetails.innerHTML = `<div><span>💱 کنورٹ ہو رہا ہے: $${amount} USD → USDC...</span></div>`;
+                const submitBtn = document.getElementById('submitDemo');
+                if (submitBtn) {
+                    submitBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const amountInput = document.getElementById('demoAmount');
+                        let amount = parseFloat(amountInput.value);
+                        if (isNaN(amount) || amount <= 0) amount = 100;
+                        startDemo(amount);
+                    });
                 }
-                if (seconds === 4) {
-                    // stablecoin تیار
-                    bDetails.innerHTML = `<div class="flex-row"><span>✅ stablecoin وصول: $${amount} USDC</span> <span class="metamask-pop" style="padding:6px 12px;">🦊 میٹاماسک میں</span></div>`;
-                }
-                if (seconds >= 6) {
-                    clearInterval(interval);
-                    bTimer.innerText = '✅ مکمل';
-                    progressBFill.style.width = '100%';
-                    // stablecoin پکا
-                    bDetails.innerHTML = `<div class="flex-row"><span>✅ stablecoin تیار: $${amount} USDC</span> <span class="metamask-pop">✔️ B والیٹ</span></div>`;
+            }
 
-                    // اب تقسیم کا مرحلہ دکھائیں
-                    distributionStep.style.display = 'block';
+            function startDemo(amount) {
+                // Hide form, show steps
+                formContainer.innerHTML = '';
+                stepsPanel.style.display = 'block';
+                distAccounts.style.display = 'none';
+                bProgress.style.width = '0%';
+                bTimer.innerText = '⏳ 0:00';
+                bDetails.innerText = `Received $${amount} USD (fiat) – converting...`;
 
-                    // 60% D, 40% C
-                    const amountC = (amount * 0.4).toFixed(2);
-                    const amountD = (amount * 0.6).toFixed(2);
-                    cBalance.innerText = `${amountC} USDC`;
-                    dBalance.innerText = `${amountD} USDC`;
+                let seconds = 0;
+                if (intervalId) clearInterval(intervalId);
+                intervalId = setInterval(() => {
+                    seconds++;
+                    const progress = Math.min(100, (seconds / 6) * 100); // 6 sec = 1 min simulated
+                    bProgress.style.width = progress + '%';
+                    bTimer.innerText = `⏳ 0:${(6-seconds).toString().padStart(2,'0')}`;
 
-                    // میٹاماسک اور بائننس کے فرضی نوٹیفیکیشن (اضافی)
-                    document.getElementById('cMeta').innerHTML = `<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 40 40'%3E%3Cpath fill='%23f6851b' d='M36.3 3.3L21.7 14.3l2.7-6.3z'/%3E%3Cpath fill='%23e4761b' d='M6.7 3.3l14.4 11.2-2.4-6.3zM32.3 27.1l-4.5 6.9 9.6 2.6 2.7-9.3z'/%3E%3Cpath fill='%23d7c1b3' d='M4 27.3l2.7 9.3 9.6-2.6-4.5-6.9zM21.7 24.4l-5.2 5.2 6.1.9-.2-6.1z'/%3E%3C/svg%3E" style="width: 22px;"> میٹاماسک: ${amountC} USDC موصول`;
-                    document.getElementById('dBinance').innerHTML = `<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23f0b90b' d='M12 2.5L4.5 7v10l7.5 4.5 7.5-4.5V7L12 2.5zm0 2.1l5.5 3.3v6.6L12 18.1l-5.5-3.3V7.9L12 4.6z'/%3E%3C/svg%3E" style="width: 22px;"> بائننس: ${amountD} USDC موصول`;
+                    if (seconds === 2) {
+                        bDetails.innerText = `💱 Converting $${amount} USD → USDC...`;
+                    }
+                    if (seconds === 4) {
+                        bDetails.innerHTML = `✅ Stablecoin ready: $${amount} USDC <span style="background:#3b82f6; padding:3px 10px; border-radius:30px;">🦊 MetaMask</span>`;
+                    }
+                    if (seconds >= 6) {
+                        clearInterval(intervalId);
+                        bTimer.innerText = '✅ Complete';
+                        bProgress.style.width = '100%';
+                        bDetails.innerHTML = `✅ $${amount} USDC in Account B wallet`;
 
-                    // اضافی طور پر چھوٹا سمارٹ کنٹریکٹ لاگ
-                }
-            }, 200); // ہر 200ms = 6 سیکنڈ میں 1 منٹ
+                        // Show distribution
+                        distAccounts.style.display = 'block';
+                        const amountC = (amount * 0.4).toFixed(2);
+                        const amountD = (amount * 0.6).toFixed(2);
+                        cBal.innerText = `${amountC} USDC`;
+                        dBal.innerText = `${amountD} USDC`;
+                    }
+                }, 200);
+            }
 
-            // store interval to clear if needed, but reset will reload page anyway.
-        }
+            btnPaypal.addEventListener('click', () => setActive('paypal'));
+            btnStripe.addEventListener('click', () => setActive('stripe'));
+            btnBank.addEventListener('click', () => setActive('bank'));
 
-        // Event listeners for payment method buttons
-        btnPaypal.addEventListener('click', () => {
-            document.querySelectorAll('.pay-btn').forEach(btn => btn.classList.remove('active'));
-            btnPaypal.classList.add('active');
-            currentMethod = 'paypal';
-            renderForm('paypal');
-        });
-        btnStripe.addEventListener('click', () => {
-            document.querySelectorAll('.pay-btn').forEach(btn => btn.classList.remove('active'));
-            btnStripe.classList.add('active');
-            currentMethod = 'stripe';
-            renderForm('stripe');
-        });
-        btnBank.addEventListener('click', () => {
-            document.querySelectorAll('.pay-btn').forEach(btn => btn.classList.remove('active'));
-            btnBank.classList.add('active');
-            currentMethod = 'bank';
-            renderForm('bank');
-        });
-
-        // Reset demo
-        resetBtn.addEventListener('click', () => {
-            // simple page refresh style, but we can just reset
-            window.location.reload(); // quick and clean
-        });
-
-        // Initialize with paypal form
-        renderForm('paypal');
-
-        // If any smart contract steps visible at start, hide them
-        stepsPanel.classList.add('hidden');
-    })();
-</script>
+            // Initial render
+            setActive('paypal');
+        })();
+    </script>
 </body>
 </html>
